@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — SportApp</title>
+<meta name="description" content="SportApp support: where your data comes from, why AI analysis needs your own API key, what the one-time unlock includes, refunds, and how to reach us.">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232749d8'/%3E%3Cpath d='M9 21l5-6 4 4 5-7' fill='none' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#ffffff;
+    --surface:#f6f7f9;
+    --text:#151b23;
+    --muted:#58616e;
+    --accent:#2749d8;
+    --border:#e2e6ec;
+    --rule:#eef1f5;
+    --mark:#0e1216;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0e1319;
+      --surface:#161d26;
+      --text:#e9eef5;
+      --muted:#a2aebc;
+      --accent:#8fb0ff;
+      --border:#252f3b;
+      --rule:#1b232d;
+      --mark:#f0f4f9;
+    }
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+
+  html{
+    -webkit-text-size-adjust:100%;
+    scroll-behavior:smooth;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Roboto, Helvetica, Arial, sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    font-kerning:normal;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  html[lang^="zh"] body{font-size:16px; line-height:1.8}
+
+  a{color:var(--accent); text-underline-offset:2px}
+  a:hover{text-decoration-thickness:2px}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px}
+
+  /* Language switching: both languages are in the DOM. The hiding rules only engage once
+     JavaScript has run, so with scripting off the page degrades to showing both in full
+     rather than showing neither. */
+  html.lang-ready[data-lang="en"] [data-l="zh"],
+  html.lang-ready[data-lang="zh"] [data-l="en"]{display:none}
+
+  .topline{
+    height:3px;
+    background:linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 35%, transparent));
+  }
+  @supports not (background: color-mix(in srgb, red 50%, blue)){
+    .topline{background:var(--accent)}
+  }
+
+  .bar{
+    max-width:720px;
+    margin:0 auto;
+    padding:20px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:650;
+    letter-spacing:-0.01em;
+    font-size:15px;
+  }
+  .brand svg{display:block; flex:none}
+
+  .lang{
+    display:flex;
+    gap:2px;
+    padding:2px;
+    border:1px solid var(--border);
+    border-radius:999px;
+    background:var(--surface);
+  }
+  .lang button{
+    all:unset;
+    cursor:pointer;
+    padding:5px 13px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:550;
+    color:var(--muted);
+    min-height:24px;
+    text-align:center;
+  }
+  .lang button[aria-pressed="true"]{
+    background:var(--bg);
+    color:var(--text);
+    box-shadow:0 1px 2px rgba(0,0,0,.08);
+  }
+  .lang button:hover{color:var(--text)}
+
+  .wrap{
+    max-width:720px;
+    margin:0 auto;
+    padding:8px 24px 72px;
+  }
+
+  header.doc{padding:20px 0 30px; border-bottom:1px solid var(--rule)}
+  h1{
+    margin:0 0 14px;
+    font-size:clamp(28px, 5.2vw, 38px);
+    line-height:1.18;
+    letter-spacing:-0.022em;
+    font-weight:700;
+  }
+  .meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 20px;
+    font-size:14px;
+    color:var(--muted);
+  }
+  .meta span{display:inline-flex; align-items:center; gap:7px}
+  .meta .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);flex:none}
+
+  nav.toc{margin:30px 0 40px}
+  nav.toc ol{
+    margin:0; padding:0; list-style:none;
+    display:grid; gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+    border-radius:10px;
+    overflow:hidden;
+  }
+  nav.toc li{margin:0}
+  nav.toc a{
+    display:flex;
+    gap:12px;
+    align-items:baseline;
+    padding:11px 16px;
+    background:var(--bg);
+    color:var(--text);
+    text-decoration:none;
+    font-size:15px;
+  }
+  nav.toc a:hover{background:var(--surface); color:var(--accent)}
+  nav.toc .num{
+    font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    font-size:12px;
+    color:var(--muted);
+    flex:none;
+    padding-top:1px;
+  }
+
+  section{padding:0 0 34px; margin:0 0 34px; border-bottom:1px solid var(--rule)}
+  section:last-of-type{border-bottom:0}
+  h2{
+    margin:0 0 14px;
+    font-size:clamp(19px, 2.6vw, 22px);
+    line-height:1.3;
+    letter-spacing:-0.014em;
+    font-weight:650;
+    display:flex;
+    gap:12px;
+    align-items:baseline;
+  }
+  h2 .num{
+    font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    font-size:13px;
+    font-weight:500;
+    color:var(--accent);
+    flex:none;
+    padding-top:2px;
+  }
+  p{margin:0 0 16px; color:var(--text)}
+  p:last-child{margin-bottom:0}
+  section p{color:color-mix(in srgb, var(--text) 88%, var(--muted))}
+  @supports not (color: color-mix(in srgb, red 50%, blue)){
+    section p{color:var(--muted)}
+  }
+  strong{font-weight:650}
+
+  /* FAQ blocks */
+  .qa{margin:0 0 28px}
+  .qa:last-child{margin-bottom:0}
+  h3{
+    margin:0 0 8px;
+    font-size:16px;
+    line-height:1.4;
+    letter-spacing:-0.008em;
+    font-weight:650;
+  }
+  .qa p{margin:0}
+
+  ul.plain{
+    margin:0 0 16px;
+    padding:0;
+    list-style:none;
+    display:grid;
+    gap:8px;
+  }
+  ul.plain li{
+    position:relative;
+    padding-left:18px;
+    color:color-mix(in srgb, var(--text) 88%, var(--muted));
+  }
+  ul.plain li::before{
+    content:"";
+    position:absolute;
+    left:2px;
+    top:.68em;
+    width:5px; height:5px;
+    border-radius:50%;
+    background:var(--accent);
+  }
+
+  .contact-link{
+    display:inline-block;
+    margin-top:2px;
+    padding:11px 16px;
+    border:1px solid var(--border);
+    border-radius:9px;
+    background:var(--surface);
+    font-weight:550;
+    text-decoration:none;
+    font-size:16px;
+    min-height:44px;
+  }
+  .contact-link:hover{border-color:var(--accent)}
+
+  footer{
+    margin-top:8px;
+    padding-top:26px;
+    border-top:1px solid var(--rule);
+    font-size:14px;
+    line-height:1.7;
+    color:var(--muted);
+  }
+  footer p{margin:0 0 10px; color:inherit}
+  footer p:last-child{margin-bottom:0}
+
+  @media (max-width:480px){
+    .wrap{padding:4px 18px 56px}
+    .bar{padding:16px 18px}
+    .brand span{display:none}
+  }
+
+  @media print{
+    :root{--bg:#fff; --text:#000; --muted:#333; --surface:#fff; --border:#bbb; --rule:#ccc; --accent:#000}
+    body{font-size:11pt; line-height:1.45}
+    .lang, nav.toc, .topline, .brand svg{display:none !important}
+    .wrap{max-width:none; padding:0}
+    section{break-inside:avoid-page; padding-bottom:12pt; margin-bottom:12pt}
+    .qa{break-inside:avoid-page}
+    a{text-decoration:none}
+    .contact-link{border:0; padding:0; background:none; min-height:0}
+  }
+</style>
+</head>
+<body>
+<div class="topline"></div>
+
+<header>
+  <div class="bar">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect width="32" height="32" rx="8" fill="var(--accent)"></rect>
+        <path d="M9 21l5-6 4 4 5-7" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      <span>SportApp</span>
+    </div>
+
+    <div class="lang" role="group" aria-label="Language / 语言">
+      <button type="button" data-set-lang="en" aria-pressed="true" lang="en">English</button>
+      <button type="button" data-set-lang="zh" aria-pressed="false" lang="zh-Hans">中文</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <header class="doc">
+    <h1>
+      <span data-l="en">Support</span>
+      <span data-l="zh">支持</span>
+    </h1>
+    <div class="meta">
+      <span>
+        <span class="dot" aria-hidden="true"></span>
+        <span data-l="en">SportApp for iPhone</span>
+        <span data-l="zh">SportApp · iPhone 版</span>
+      </span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Contents / 目录">
+    <ol>
+      <li><a href="#about"><span class="num">01</span><span data-l="en">What the app does</span><span data-l="zh">这个 App 做什么</span></a></li>
+      <li><a href="#faq"><span class="num">02</span><span data-l="en">Common questions</span><span data-l="zh">常见问题</span></a></li>
+      <li><a href="#contact"><span class="num">03</span><span data-l="en">Contact us</span><span data-l="zh">联系我们</span></a></li>
+    </ol>
+  </nav>
+
+  <section id="about">
+    <h2>
+      <span class="num">01</span>
+      <span data-l="en">What the app does</span>
+      <span data-l="zh">这个 App 做什么</span>
+    </h2>
+    <p data-l="en">SportApp reads the runs you have recorded in Apple Health and lays them out plainly: a single run, how the weeks and months are actually going, and an AI analysis you can follow up with questions.</p>
+    <p data-l="zh">SportApp 从 Apple 健康读取你记录的运动，把它们如实摊开给你看：单次跑步、周与月的真实走向，以及可以继续追问的 AI 分析。</p>
+    <p data-l="en">The app reads from Apple Health only — it never writes to it or changes anything in it.</p>
+    <p data-l="zh">App 只从 Apple 健康读取数据，不会向其中写入或修改任何内容。</p>
+  </section>
+
+  <section id="faq">
+    <h2>
+      <span class="num">02</span>
+      <span data-l="en">Common questions</span>
+      <span data-l="zh">常见问题</span>
+    </h2>
+
+    <div class="qa">
+      <h3 data-l="en">Where does my data come from, and does it leave my phone?</h3>
+      <h3 data-l="zh">我的数据从哪里来？会离开手机吗？</h3>
+      <p data-l="en">Your workouts are read from Apple Health and kept on this device. Nothing is uploaded by the app. Data leaves the device in exactly one case: when you trigger an AI analysis, de-identified workout metrics are sent directly to the model service you chose, using your own API key. Your name, email, Apple ID, device identifiers and your location — including routes — are never sent. The <a href="index.html">privacy policy</a> sets this out in full.</p>
+      <p data-l="zh">运动数据从 Apple 健康读取后保存在本机，App 不会上传任何内容。只有一种情况会离开设备：你主动发起 AI 分析时，脱敏后的运动指标会直接发送给你自己选定的模型服务，使用的是你自己申请的 API Key。你的姓名、电子邮箱、Apple ID、设备标识以及位置（包括路线）都不会被发送。完整说明见<a href="index.html">隐私政策</a>。</p>
+    </div>
+
+    <div class="qa">
+      <h3 data-l="en">Why is AI analysis not working?</h3>
+      <h3 data-l="zh">AI 分析为什么用不了？</h3>
+      <p data-l="en">Two things are needed, and they are separate:</p>
+      <p data-l="zh">需要两件事，而且是分开的：</p>
+      <ul class="plain">
+        <li data-l="en"><strong>The one-time unlock</strong> — the one-tap analysis from a run or a period.</li>
+        <li data-l="zh"><strong>一次性解锁</strong> —— 从跑步详情或统计页发起的一键分析。</li>
+        <li data-l="en"><strong>Your own API key</strong> — added under Settings → AI. The app does not ship with a key, so this is what actually pays for the model calls.</li>
+        <li data-l="zh"><strong>你自己的 API Key</strong> —— 在「设置 → AI」中填入。App 不内置 Key，模型调用由你自己的账号承担。</li>
+      </ul>
+      <p data-l="en">If you have bought the unlock but analysis still fails, the key is usually the reason: check that it is saved, that the provider is reachable from your network, and that the account behind it has credit.</p>
+      <p data-l="zh">如果已经购买解锁但仍然失败，问题通常出在 Key 上：确认它已保存、该服务商在你的网络下可以访问、且对应账号还有余额。</p>
+    </div>
+
+    <div class="qa">
+      <h3 data-l="en">Is the unlock a subscription? Can I get it back on a new phone?</h3>
+      <h3 data-l="zh">解锁是订阅吗？换手机还能用吗？</h3>
+      <p data-l="en">It is a one-time purchase, not a subscription. Nothing renews and there is no recurring charge. On any device signed in to the same Apple ID, open the unlock screen and tap <strong>Restore Purchase</strong>.</p>
+      <p data-l="zh">是一次性买断，不是订阅。不会自动续费，也没有周期性扣款。在任何登录同一 Apple ID 的设备上，打开解锁页面点<strong>「恢复购买」</strong>即可。</p>
+    </div>
+
+    <div class="qa">
+      <h3 data-l="en">How do I get a refund?</h3>
+      <h3 data-l="zh">怎么退款？</h3>
+      <p data-l="en">Purchases are handled by Apple, so refunds go through them rather than through the app. Visit <a href="https://reportaproblem.apple.com" rel="noopener">reportaproblem.apple.com</a>, or open the App Store, tap your account, then Purchase History.</p>
+      <p data-l="zh">购买由 Apple 处理，因此退款也要通过 Apple，而不是在 App 内操作。请访问 <a href="https://reportaproblem.apple.com" rel="noopener">reportaproblem.apple.com</a>，或在 App Store 中打开你的账户，进入「购买记录」。</p>
+    </div>
+
+    <div class="qa">
+      <h3 data-l="en">My Health data looks empty. What should I check?</h3>
+      <h3 data-l="zh">健康数据是空的，该检查什么？</h3>
+      <p data-l="en">Open Settings → Privacy &amp; Security → Health → SportApp and confirm that reading is allowed. If you have just granted it, pull down to refresh. Recorded workouts also need to exist in Apple Health — if there are none there, there is nothing for the app to show.</p>
+      <p data-l="zh">打开「设置 → 隐私与安全性 → 健康 → SportApp」，确认读取权限已开启。如果刚刚授权，在列表页下拉刷新一次。另外，Apple 健康里本身需要有运动记录 —— 如果那里是空的，App 也就没有内容可显示。</p>
+    </div>
+
+    <div class="qa">
+      <h3 data-l="en">How do I delete my data?</h3>
+      <h3 data-l="zh">怎么删除我的数据？</h3>
+      <p data-l="en">Deleting the app removes everything it stored on the device. Analysis results can also be deleted on their own from Settings, and revoking AI consent in Settings → AI stops any further sending and clears the stored results.</p>
+      <p data-l="zh">删除 App 即会清除它在本机保存的全部内容。分析结果也可以在设置中单独删除；在「设置 → AI」中撤回同意会立即停止后续发送，并清除已保存的结果。</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>
+      <span class="num">03</span>
+      <span data-l="en">Contact us</span>
+      <span data-l="zh">联系我们</span>
+    </h2>
+    <p data-l="en">If something is broken, unclear, or missing, write to us. Including your iPhone model and iOS version helps. We usually reply within a few days.</p>
+    <p data-l="zh">如果有功能异常、说明不清或缺少的内容，欢迎写信给我们。附上你的 iPhone 机型和 iOS 版本会有帮助。通常在几天内回复。</p>
+    <a class="contact-link" href="mailto:zeusgooogle@gmail.com">zeusgooogle@gmail.com</a>
+  </section>
+
+  <footer>
+    <p data-l="en">See also the <a href="index.html">privacy policy</a>, which explains exactly what stays on your device and what an AI analysis sends.</p>
+    <p data-l="zh">另见<a href="index.html">隐私政策</a>，其中说明了哪些内容留在本机、以及 AI 分析会发送什么。</p>
+  </footer>
+
+</main>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-set-lang]'));
+
+  function normalise(value) {
+    return String(value || '').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en';
+  }
+
+  function apply(lang, push) {
+    root.setAttribute('data-lang', lang);
+    root.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : 'en');
+    buttons.forEach(function (button) {
+      button.setAttribute('aria-pressed', String(button.getAttribute('data-set-lang') === lang));
+    });
+    if (push !== false && window.history && history.replaceState) {
+      var url = new URL(window.location.href);
+      if (lang === 'zh') {
+        url.searchParams.set('lang', 'zh');
+      } else {
+        url.searchParams.delete('lang');
+      }
+      history.replaceState(null, '', url.toString());
+    }
+  }
+
+  var requested = new URLSearchParams(window.location.search).get('lang');
+  var initial = requested ? normalise(requested)
+                          : (normalise(navigator.language) === 'zh' ? 'zh' : 'en');
+
+  apply(initial, false);
+  root.classList.add('lang-ready');
+
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      apply(normalise(button.getAttribute('data-set-lang')));
+    });
+  });
+})();
+</script>
+</body>
+</html>
