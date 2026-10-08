@@ -434,9 +434,13 @@
     }
   }
 
+  // English is the default, not a guess from the browser: this page is the App Store listing's support URL
+  // (the same string in both the English and the Chinese localization), so the page a reviewer lands on has
+  // to be the English one every time. Chinese is asked for with ?lang=zh. Following `navigator.language`
+  // made the default depend on whose machine opened the link, which is exactly the wrong thing for a page
+  // that has to say one thing.
   var requested = new URLSearchParams(window.location.search).get('lang');
-  var initial = requested ? normalise(requested)
-                          : (normalise(navigator.language) === 'zh' ? 'zh' : 'en');
+  var initial = requested ? normalise(requested) : 'en';
 
   apply(initial, false);
   root.classList.add('lang-ready');
